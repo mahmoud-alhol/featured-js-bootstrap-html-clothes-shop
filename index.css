@@ -1,11 +1,8 @@
-/* .header-img {
-  background-image: url("Assets/header.png");
-  height: 100dvh;
-  background-size: cover;
-  position: fixed;
-  width: 100%;
-  z-index: -1;
-} */
+:root {
+  --bs-primary: #ff741e;
+  --bs-primary-rgb: #ff741e;
+}
+
 .header-content {
   background: url(Assets/header.png);
   background-repeat: no-repeat;
