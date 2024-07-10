@@ -4,7 +4,7 @@ fetch("https://fakestoreapi.com/products")
     document.getElementById("cardContainer").innerHTML = "";
     for (let i = 0; i < productData.length; i++) {
       if (productData[i].title.length > 20) {
-        productData[i].title = productData[i].title.substring(0, 40) + "...";
+        productData[i].title = productData[i].title.substring(0, 30) + "...";
       }
       productData[i].title = productData[i].title;
 
