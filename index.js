@@ -271,13 +271,11 @@ if (window.location.pathname === "/cart.html") {
     cartItemsContainer.innerHTML = "";
     let subtotal = 0;
 
-    // Create a map to count occurrences of each product ID
     const cartItemCount = currentUser.cart.reduce((countMap, productId) => {
       countMap[productId] = (countMap[productId] || 0) + 1;
       return countMap;
     }, {});
 
-    // Generate HTML for each unique product in the cart
     Object.keys(cartItemCount).forEach((productId) => {
       let product = productData[productId];
       let quantity = cartItemCount[productId];
