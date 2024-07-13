@@ -12,8 +12,8 @@ if (document.getElementById("html")) {
       document.getElementById("cardContainer").innerHTML = "";
       for (let i = 0; i < productData.length; i++) {
         document.getElementById("cardContainer").innerHTML += `
-      <div class="card shadow border-0 align-items-center" onclick="productPage(${i})">
-        <img src="${productData[i].image}" class="card-img-top m-3" />
+      <div class="card shadow border-0 align-items-center flex-grow-1" onclick="productPage(${i})">
+        <img src="${productData[i].image}" class="card-img-top m-3"/>
         <div class="card-body w-100">
         <h5 class="card-title cardTitle" >${productData[i].title}</h5>
         <p class="card-text cardDescription">${
