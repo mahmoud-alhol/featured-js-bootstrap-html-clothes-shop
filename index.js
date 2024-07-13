@@ -104,7 +104,12 @@ document.getElementById("signUp").addEventListener("click", function () {
 });
 
 // Sign in
-let userData = JSON.parse(localStorage.getItem("user")) || [];
+let userData;
+if ((userData = localStorage.getItem("user"))) {
+  JSON.parse(localStorage.getItem("user"));
+} else {
+  userData = [];
+}
 
 let inEmail = document.getElementById("inEmail");
 let inEmailError = document.getElementById("inEmailError");
