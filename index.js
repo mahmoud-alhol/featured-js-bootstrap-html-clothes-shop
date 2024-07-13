@@ -153,6 +153,10 @@ document.getElementById("signIn").addEventListener("click", function () {
       userData[i].email == inEmail.value &&
       userData[i].password == inPassword.value
     ) {
+      console.log(`userData[i].email: ${userData[i].email}`)
+      console.log(`inEmail.value: ${inEmail.value}`)
+      console.log(`userData[i].password: ${userData[i].password}`)
+      console.log(`inPassword.value: ${inPassword.value}`)
       isAuthenticated = true;
       currentUser = userData[i];
       currentUser.index = i;
