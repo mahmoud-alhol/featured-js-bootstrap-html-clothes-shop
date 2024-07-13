@@ -320,28 +320,36 @@ if (dark === null) {
   localStorage.setItem("dark", dark);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  darkMode(dark);
+  console.log(dark);
+});
+
 if (document.getElementById("theme-toggle")) {
   document.getElementById("theme-toggle").addEventListener("click", () => {
+    toggleDark(dark);
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
-    toggleDark(dark);
+    console.log(dark);
+
   });
 } else if (document.getElementById("theme-toggle2")) {
   document.getElementById("theme-toggle2").addEventListener("click", () => {
+    toggleDark(dark);
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
-    toggleDark(dark);
+    console.log(dark);
+
   });
 } else if (document.getElementById("theme-toggle3")) {
   document.getElementById("theme-toggle3").addEventListener("click", () => {
+    toggleDark(dark);
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
-    toggleDark(dark);
+    console.log(dark);
+
   });
 }
-document.addEventListener("DOMContentLoaded", () => {
-  darkMode(dark);
-});
 
 function darkMode(dark) {
   if (dark == 1) {

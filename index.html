@@ -15,15 +15,14 @@
   <!-- Navbar -->
   <nav class="navbar navbar-light navbar-expand-lg bg-primary shadow fixed-top" id="navBar">
     <div class="container-md">
-      <a class="navbar-brand" href="#">
-        <i class="bi bi-shop"></i>
-        Clothes store
+      <a class="navbar-brand bi bi-shop fs-2" href="#">
+       <span class="fs-4">Clothes store</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse " id="navbarText">
+      <div class="collapse navbar-collapse  " id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#home">Home</a>
@@ -35,22 +34,22 @@
             <a class="nav-link" href="#contactUs">Contact us</a>
           </li>
         </ul>
-        <div class="navbar-text ">
-        <a id="theme-toggle" class="mt-5 pt-5"><i class="bi bi-brightness-high-fill fs-4 px-3"></i></a>
+        <div class="navbar-text d-flex gap-1 ">
+          <a id="theme-toggle" ><i class="bi bi-brightness-high-fill fs-4 px-3"></i></a>
           <p id="hiName" class="me-3 mb-0"></p>
           <a href="cart.html" onclick="cartPage()"><i class="bi bi-cart2 position-relative  me-3" id="cartIcon"></i></a>
-          <button type="button" class="btn btn-secondary btn-sm " data-bs-target="#signInModalToggle2"
-            data-bs-toggle="modal" id="signOutBtn">
-            Sign out
-          </button>
-          <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"
-            id="signUpBtn">
-            Sign up
-          </button>
-          <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
-            data-bs-toggle="modal" id="signInBtn">
-            Sign in
-          </button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
+              data-bs-toggle="modal" id="signOutBtn">
+              Sign out
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"
+              id="signUpBtn">
+              Sign up
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
+              data-bs-toggle="modal" id="signInBtn">
+              Sign in
+            </button>
         </div>
       </div>
     </div>
@@ -169,39 +168,42 @@
   <div id="products" class="pt-3 pb-4">
     <div class="container-md">
       <h1 class="h1 mb-5">Products</h1>
-      <div id="cardContainer" class="d-flex flex-wrap justify-content-md-start justify-content-lg-center justify-content-around gap-2">
+      <div id="cardContainer"
+        class="d-flex flex-wrap justify-content-md-start justify-content-lg-center justify-content-around gap-2">
         <!-- Cards header-content -->
       </div>
     </div>
   </div>
 
   <!-- Contact us -->
-  <div id="contactUs">
+  <div id="contactUs" class="my-4">
     <div class="container d-flex justify-content-around">
       <div>
-          <h5>Contact Us</h5>
-          <div class="contact-info">
-            <p><i class="fas fa-map-marker-alt"></i> 1234 Main St, Anytown, USA</p>
-            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:info@example.com">info@example.com</a></p>
-          </div>
-        </div>
-        <div >
-          <h5>Follow Us</h5>
-          <div class="social-icons d-flex flex-column">
-            <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"> @clothes_shop</i>
-            </a>
-            <a href="https://X.com" target="_blank" title="X"><i class="bi bi-twitter-x"></i> @clothes_shop</a>
-            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i> @clothes_shop</a>
-            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i> @clothes_shop</a>
-            <a href="https://youtube.com" target="_blank" title="YouTube"><i class="bi bi-youtube"></i> @clothes_shop</a>
-          </div>
+        <h5>Contact Us</h5>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> 1234 Main St, Anytown, USA</p>
+          <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:info@example.com">info@example.com</a></p>
         </div>
       </div>
-      <div class="text-center mt-4">
-        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+      <div>
+        <h5>Follow Us</h5>
+        <div class="social-icons d-flex flex-column">
+          <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"> @clothes_shop</i>
+          </a>
+          <a href="https://X.com" target="_blank" title="X"><i class="bi bi-twitter-x"></i> @clothes_shop</a>
+          <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i>
+            @clothes_shop</a>
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i>
+            @clothes_shop</a>
+          <a href="https://youtube.com" target="_blank" title="YouTube"><i class="bi bi-youtube"></i> @clothes_shop</a>
+        </div>
       </div>
     </div>
+    <div class="text-center mt-4">
+      <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </div>
+  </div>
   </div>
 
   <script src="index.js"></script>

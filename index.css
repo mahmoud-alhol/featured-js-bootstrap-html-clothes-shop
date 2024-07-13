@@ -97,3 +97,12 @@
 #theme-toggle3 {
   cursor: pointer;
 }
+.navbar-brand {
+  margin-top: -10px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+@media (min-width: 768px) {
+  .navbar-brand {
+    margin-top: -5px;
+  }

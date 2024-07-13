@@ -22,49 +22,48 @@
 
   <body class="bg-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-light navbar-expand-lg bg-primary  shadow fixed-top">
+    <nav class="navbar navbar-light navbar-expand-lg bg-primary shadow fixed-top" id="navBar">
       <div class="container-md">
-        <a class="navbar-brand" href="#">
-          <i class="bi bi-shop"></i>
-          Clothes store
+        <a class="navbar-brand bi bi-shop fs-2" href="#index.html">
+         <span class="fs-4">Clothes store</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
+        <div class="collapse navbar-collapse  " id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#home">Home</a>
+              <a class="nav-link" aria-current="page" href="index.html#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#products">Shop</a>
+              <a class="nav-link" href="index.html#products">Shop</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contactUs">Contact us</a>
+              <a class="nav-link" href="index.html#contactUs">Contact us</a>
             </li>
           </ul>
-          <span class="navbar-text">
-          <a id="theme-toggle3"><i class="bi bi-brightness-high-fill fs-4"></i>
-          </a>
-            <p id="hiName" class="mb-0 me-3 "></p>
+          <div class="navbar-text d-flex gap-1 ">
+            <a id="theme-toggle" ><i class="bi bi-brightness-high-fill fs-4 px-3"></i></a>
+            <p id="hiName" class="me-3 mb-0"></p>
             <a href="cart.html" onclick="cartPage()"><i class="bi bi-cart2 position-relative  me-3" id="cartIcon"></i></a>
-            <button type="button" class="btn btn-secondary btn-sm " data-bs-target="#signInModalToggle2"
-              data-bs-toggle="modal" id="signOutBtn">
-              Sign out
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"
-              id="signUpBtn">
-              Sign up
-            </button>
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
-              data-bs-toggle="modal" id="signInBtn">
-              Sign in
-            </button>
-          </span>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
+                data-bs-toggle="modal" id="signOutBtn">
+                Sign out
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"
+                id="signUpBtn">
+                Sign up
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
+                data-bs-toggle="modal" id="signInBtn">
+                Sign in
+              </button>
+          </div>
         </div>
       </div>
     </nav>
+  
 
     <!-- Sign up modal -->
     <div
