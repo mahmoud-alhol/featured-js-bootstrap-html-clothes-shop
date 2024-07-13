@@ -1,15 +1,21 @@
-:root {
-  --bs-primary: #ff741e;
-  --bs-primary-rgb: #ff741e;
-}
-
 .header-content {
-  background: url(Assets/header.png);
+  background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: rgba(255, 255, 255, 0);
   height: 100dvh;
+}
+.header-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, #f9f7ff 35%, transparent);
+}
+.header-content * {
+  z-index: 2;
 }
 .header-content p {
   max-width: 600px;
@@ -20,11 +26,77 @@
 .line {
   color: #fb8959;
 }
-.card img {
-  height: 200px; /* Set your desired fixed height */
+.card.shadow.border-0.align-items-center {
+  width: 10rem;
+  max-width: 19rem;
+}
+@media (min-width: 768px) {
+  .card.shadow.border-0.align-items-center {
+    width: 17rem;
+    max-width: 20rem;
+  }
+}
+.card.shadow.border-0.align-items-center img {
+  height: 200px;
   width: auto;
   max-width: 100%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+}
+.error {
+  display: none;
+}
+#hiName,
+#cartIcon,
+#signOutBtn {
+  display: none;
+}
+i .badge-small.bi.bi-cart2.position-relative {
+  font-size: 0.5rem !important;
+  padding: 0.2em;
+}
+.card {
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.card.shadow.border-0.align-items-center:hover {
+  scale: 1.05;
+}
+.margin-page-start {
+  margin-top: 100px;
+}
+.productImage {
+  max-width: 300px;
+}
+.cartProductImage {
+  max-width: 190px;
+  max-height: 150px;
+  flex: 1;
+  object-fit: contain;
+}
+.cartCard {
+  height: 150px;
+  align-items: center;
+}
+.cartCard:hover {
+  box-shadow: 0 0px 15px 0px;
+}
+.cartName {
+  flex: 2;
+}
+.cartPrice {
+  flex: 1;
+}
+.cardTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cardDescription {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

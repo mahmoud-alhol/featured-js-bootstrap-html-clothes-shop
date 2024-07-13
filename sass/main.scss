@@ -1,0 +1,11 @@
+$primary: #8155d1;
+$secondary: #d2baff;
+$light: #f9f7ff;
+
+[data-bs-theme="dark"] {
+  --bs-primary: red;
+  --bs-primary-bg-subtle: red;
+  --bs-primary-bg-subtle-dark: red;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
