@@ -99,11 +99,11 @@
   cursor: pointer;
 }
 .navbar-brand {
-  margin-top: -10px;
-  padding-bottom: 0;
-  padding-top: 0;
+  margin-top: 0px;
 }
 @media (min-width: 768px) {
   .navbar-brand {
-    margin-top: 0px;
-  }
+    margin-top: -10px;
+    padding-bottom: 0;
+    padding-top: 0;
+  }}
