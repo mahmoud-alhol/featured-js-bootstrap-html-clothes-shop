@@ -3,7 +3,6 @@ let isAuthenticated = false;
 let currentUser = [];
 let productData = [];
 
-
 // Fetch data from API and put them in cards
 if (document.getElementById("html")) {
   fetch("https://fakestoreapi.com/products")
@@ -232,7 +231,7 @@ function productPage(i) {
   window.location.href = `product.html?id=${i}`;
 }
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("html")) {
+  if (document.getElementById("html3")) {
     let productId = new URLSearchParams(window.location.search).get("id");
     let productData = JSON.parse(localStorage.getItem("productData"));
     let product = productData[productId];
@@ -354,7 +353,16 @@ function darkMode(dark) {
       document.getElementById("html3").setAttribute("data-bs-theme", "dark");
     }
 
-    document.getElementById('theme-toggle').innerHTML='<i class="bi bi-moon-fill fs-4 px-3"></i>'
+    if (document.getElementById("theme-toggle")) {
+      document.getElementById("theme-toggle").innerHTML =
+        '<i class="bi bi-moon-fill fs-4 px-3"></i>';
+    } else if (document.getElementById("theme-toggle2")) {
+      document.getElementById("theme-toggle2").innerHTML =
+        '<i class="bi bi-moon-fill fs-4 px-3"></i>';
+    } else if (document.getElementById("theme-toggle3")) {
+      document.getElementById("theme-toggle3").innerHTML =
+        '<i class="bi bi-moon-fill fs-4 px-3"></i>';
+    }
 
     if (document.getElementById("gradient-overlay")) {
       document.getElementById("gradient-overlay").style.background =
@@ -396,7 +404,16 @@ function darkMode(dark) {
       document.getElementById("html3").setAttribute("data-bs-theme", "light");
     }
 
-     document.getElementById('theme-toggle').innerHTML='<i class="bi bi-brightness-high-fill fs-4 px-3"></i>'
+    if (document.getElementById("theme-toggle")) {
+      document.getElementById("theme-toggle").innerHTML =
+        '<i class="bi bi-brightness-high-fill fs-4 px-3"></i>';
+    } else if (document.getElementById("theme-toggle2")) {
+      document.getElementById("theme-toggle2").innerHTML =
+        '<i class="bi bi-brightness-high-fill fs-4 px-3"></i>';
+    } else if (document.getElementById("theme-toggle3")) {
+      document.getElementById("theme-toggle3").innerHTML =
+        '<i class="bi bi-brightness-high-fill fs-4 px-3"></i>';
+    }
 
     if (document.getElementById("gradient-overlay")) {
       document.getElementById("gradient-overlay").style.background =
