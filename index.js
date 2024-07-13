@@ -4,7 +4,7 @@ let currentUser = [];
 let productData = [];
 
 // Fetch data from API and put them in cards
-if (window.location.pathname === "/index.html") {
+if (document.getElementById("html")) {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((productData) => {
@@ -231,7 +231,7 @@ function productPage(i) {
   window.location.href = `product.html?id=${i}`;
 }
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.pathname === "/product.html") {
+  if (document.getElementById("html")) {
     let productId = new URLSearchParams(window.location.search).get("id");
     let productData = JSON.parse(localStorage.getItem("productData"));
     let product = productData[productId];
@@ -261,7 +261,7 @@ function cartPage() {
   window.location.href = `product.html?id=${i}`;
 }
 
-if (window.location.pathname === "/cart.html") {
+if (document.getElementById("html2")) {
   let productData = JSON.parse(localStorage.getItem("productData"));
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
