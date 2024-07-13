@@ -115,7 +115,9 @@ inEmail.addEventListener("blur", function () {
   if (foundUsers.length > 0) {
     inEmailError.style.display = "none";
   } else {
-    inEmailError.style.display = "flex";
+    if (inEmail.value) {
+      inEmailError.style.display = "flex";
+    }
   }
 });
 
@@ -130,22 +132,6 @@ document.getElementById("inPassword").addEventListener("keyup", function () {
     )
   ) {
     document.getElementById("signIn").setAttribute("data-bs-dismiss", "modal");
-    inPasswordError.style.display = "none";
-  } else {
-    inPasswordError.style.display = "flex";
-  }
-});
-document.getElementById("signInModalToggle2").addEventListener("touchstart", function () {
-  if (
-    userData.find(
-      (user) =>
-        user.email === inEmail.value && user.password === inPassword.value
-    )
-  ) {
-    document.getElementById("signIn").setAttribute("data-bs-dismiss", "modal");
-    inPasswordError.style.display = "none";
-  } else {
-    inPasswordError.style.display = "flex";
   }
 });
 
@@ -217,8 +203,8 @@ function addToCart(i) {
   if (!JSON.parse(localStorage.getItem("auth"))) {
     alert("Please login first");
   } else {
+    let cartNum = JSON.parse(localStorage.getItem("currentUser")).cart.length;
     cartNum++;
-
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     currentUser.cart.push(i);
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -230,6 +216,15 @@ function addToCart(i) {
   </span>`;
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  let cartNumber = JSON.parse(localStorage.getItem("currentUser")).cart.length;
+  document.getElementById(
+    "cartIcon"
+  ).innerHTML = `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-primary fs-6 p-1">
+${cartNumber}
+</span>`;
+});
 
 // Rating to stars
 function getRatingStars(rate) {
@@ -296,7 +291,9 @@ if (document.getElementById("html2")) {
 
       cartItemsContainer.innerHTML += `
         <div class="card cartCard mb-3 d-flex flex-row wrap">
-          <img id"cartImg" src="${product.image}" class="p-3 cartProductImage" />
+          <img id"cartImg" src="${
+            product.image
+          }" class="p-3 cartProductImage" />
           <div class="cartName">
             <h5 class="card-title cardTitle">${product.title}</h5>
             <p class="card-text text-primary">
@@ -344,7 +341,6 @@ if (document.getElementById("theme-toggle")) {
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
     console.log(dark);
-
   });
 } else if (document.getElementById("theme-toggle2")) {
   document.getElementById("theme-toggle2").addEventListener("click", () => {
@@ -352,7 +348,6 @@ if (document.getElementById("theme-toggle")) {
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
     console.log(dark);
-
   });
 } else if (document.getElementById("theme-toggle3")) {
   document.getElementById("theme-toggle3").addEventListener("click", () => {
@@ -360,7 +355,6 @@ if (document.getElementById("theme-toggle")) {
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
     console.log(dark);
-
   });
 }
 
