@@ -135,6 +135,19 @@ document.getElementById("inPassword").addEventListener("keyup", function () {
     inPasswordError.style.display = "flex";
   }
 });
+document.getElementById("signInModalToggle2").addEventListener("touchstart", function () {
+  if (
+    userData.find(
+      (user) =>
+        user.email === inEmail.value && user.password === inPassword.value
+    )
+  ) {
+    document.getElementById("signIn").setAttribute("data-bs-dismiss", "modal");
+    inPasswordError.style.display = "none";
+  } else {
+    inPasswordError.style.display = "flex";
+  }
+});
 
 function authy() {
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
