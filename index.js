@@ -1,3 +1,4 @@
+// Fetch data from API and put them in cards
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((productData) => {
@@ -87,3 +88,6 @@ fetch("https://fakestoreapi.com/products")
     }
   })
   .catch((error) => console.error("Error fetching product data:", error));
+
+  // Sign up check and save data
+  
