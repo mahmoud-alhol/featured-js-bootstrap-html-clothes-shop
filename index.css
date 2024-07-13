@@ -1,9 +1,10 @@
 #header-content {
   background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
-  background-attachment: fixed;  
+  background-attachment: fixed;
+  background-size:cover;
   height: 100dvh;
-  background-position: 50% 25%;
+  background-position: 50% 25% !important; 
 }
 #gradient-overlay {
   content: "";
