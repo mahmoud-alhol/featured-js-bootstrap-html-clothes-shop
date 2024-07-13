@@ -104,12 +104,7 @@ document.getElementById("signUp").addEventListener("click", function () {
 });
 
 // Sign in
-let userData;
-if ((userData = localStorage.getItem("user"))) {
-  JSON.parse(localStorage.getItem("user"));
-} else {
-  userData = [];
-}
+let userData = JSON.parse(localStorage.getItem("user")) || [];
 
 let inEmail = document.getElementById("inEmail");
 let inEmailError = document.getElementById("inEmailError");
@@ -223,12 +218,15 @@ function addToCart(i) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  let cartNumber = JSON.parse(localStorage.getItem("currentUser")).cart.length;
-  document.getElementById(
-    "cartIcon"
-  ).innerHTML = `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-primary fs-6 p-1">
+  if (localStorage.getItem("currentUser")) {
+    let cartNumber = JSON.parse(localStorage.getItem("currentUser")).cart
+      .length;
+    document.getElementById(
+      "cartIcon"
+    ).innerHTML = `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-primary fs-6 p-1">
 ${cartNumber}
 </span>`;
+  }
 });
 
 // Rating to stars
@@ -337,7 +335,6 @@ if (dark === null) {
 
 document.addEventListener("DOMContentLoaded", () => {
   darkMode(dark);
-  console.log(dark);
 });
 
 if (document.getElementById("theme-toggle")) {
@@ -345,21 +342,18 @@ if (document.getElementById("theme-toggle")) {
     toggleDark(dark);
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
-    console.log(dark);
   });
 } else if (document.getElementById("theme-toggle2")) {
   document.getElementById("theme-toggle2").addEventListener("click", () => {
     toggleDark(dark);
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
-    console.log(dark);
   });
 } else if (document.getElementById("theme-toggle3")) {
   document.getElementById("theme-toggle3").addEventListener("click", () => {
     toggleDark(dark);
     dark = JSON.parse(localStorage.getItem("dark"));
     darkMode(dark);
-    console.log(dark);
   });
 }
 
