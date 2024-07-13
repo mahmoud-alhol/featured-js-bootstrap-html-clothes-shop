@@ -1,11 +1,11 @@
-.header-content {
+#header-content {
   background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   height: 100dvh;
 }
-.header-content::before {
+#gradient-overlay {
   content: "";
   position: absolute;
   top: 0;
@@ -13,18 +13,13 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(to top, #f9f7ff 35%, transparent);
+  z-index: 0;
 }
-.header-content * {
+#header-content * {
   z-index: 2;
 }
-.header-content p {
+#header-content p {
   max-width: 600px;
-}
-.on {
-  color: #4d90fe;
-}
-.line {
-  color: #fb8959;
 }
 .card.shadow.border-0.align-items-center {
   width: 10rem;
@@ -99,4 +94,9 @@ i .badge-small.bi.bi-cart2.position-relative {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+#theme-toggle,
+#theme-toggle2,
+#theme-toggle3 {
+  cursor: pointer;
 }

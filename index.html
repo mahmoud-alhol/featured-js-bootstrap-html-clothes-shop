@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html" data-bs-theme="light">
 
 <head>
   <meta charset="UTF-8" />
@@ -13,18 +13,17 @@
 
 <body class="bg-light">
   <!-- Navbar -->
-  <nav class="navbar navbar-dark navbar-expand-lg bg-primary  shadow fixed-top">
+  <nav class="navbar navbar-dark navbar-expand-lg bg-primary shadow fixed-top">
     <div class="container-md">
       <a class="navbar-brand" href="#">
         <i class="bi bi-shop"></i>
         Clothes store
       </a>
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarText">
+      <div class="collapse navbar-collapse " id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="#home">Home</a>
@@ -36,8 +35,9 @@
             <a class="nav-link" href="#contactUs">Contact us</a>
           </li>
         </ul>
-        <span class="navbar-text">
-          <p id="hiName" class="mb-0 me-3 "></p>
+        <span class="navbar-text ">
+        <a id="theme-toggle" class="mt-5 pt-5"><i class="bi bi-brightness-high-fill fs-4"></i></a>
+          <p id="hiName" class="me-3"></p>
           <a href="cart.html" onclick="cartPage()"><i class="bi bi-cart2 position-relative  me-3" id="cartIcon"></i></a>
           <button type="button" class="btn btn-secondary btn-sm " data-bs-target="#signInModalToggle2"
             data-bs-toggle="modal" id="signOutBtn">
@@ -149,7 +149,8 @@
 
   <!-- Header -->
   <div class="header-img" id="home"></div>
-  <div class="header-content">
+  <div id="header-content">
+    <div id="gradient-overlay"></div>
     <div class="h-100 container-md d-flex justify-content-end flex-column gap-2 align-items-start">
       <p class="h1 text-primary">Shopping</p>
       <h1 class="display-1 fw-medium text-secondary">

@@ -16,7 +16,9 @@ if (window.location.pathname === "/index.html") {
         <img src="${productData[i].image}" class="card-img-top m-3" />
         <div class="card-body w-100">
         <h5 class="card-title cardTitle" >${productData[i].title}</h5>
-        <p class="card-text cardDescription">${productData[i].description}</p>   
+        <p class="card-text cardDescription">${
+          productData[i].description
+        }</p>   
         </div>
         <div class='mt-auto mb-4 ms-3 align-self-start'>
         <p class="card-text text-primary">${getRatingStars(
@@ -245,7 +247,7 @@ if (window.location.pathname === "/cart.html") {
   if (currentUser && currentUser.cart && currentUser.cart.length > 0) {
     const cartItemsContainer = document.getElementById("cartItems");
     const subtotalContainer = document.getElementById("subtotalContainer");
-    cartItemsContainer.innerHTML = ""; // Clear any existing content
+    cartItemsContainer.innerHTML = "";
     let subtotal = 0;
 
     // Create a map to count occurrences of each product ID
@@ -290,4 +292,122 @@ if (window.location.pathname === "/cart.html") {
         <h4>Subtotal: ${subtotal.toFixed(2)} L.E.</h4>
       </div>`;
   }
+}
+
+// Dark mode
+let dark = JSON.parse(localStorage.getItem("dark"));
+if (dark === null) {
+  dark = 0;
+  localStorage.setItem("dark", dark);
+}
+
+if (document.getElementById("theme-toggle")) {
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    dark = JSON.parse(localStorage.getItem("dark"));
+    darkMode(dark);
+    toggleDark(dark);
+  });
+} else if (document.getElementById("theme-toggle2")) {
+  document.getElementById("theme-toggle2").addEventListener("click", () => {
+    dark = JSON.parse(localStorage.getItem("dark"));
+    darkMode(dark);
+    toggleDark(dark);
+  });
+} else if (document.getElementById("theme-toggle3")) {
+  document.getElementById("theme-toggle3").addEventListener("click", () => {
+    dark = JSON.parse(localStorage.getItem("dark"));
+    darkMode(dark);
+    toggleDark(dark);
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
+  darkMode(dark);
+});
+
+function darkMode(dark) {
+  if (dark == 1) {
+    if (document.getElementById("html")) {
+      document.getElementById("html").setAttribute("data-bs-theme", "dark");
+    } else if (document.getElementById("html2")) {
+      document.getElementById("html2").setAttribute("data-bs-theme", "dark");
+    } else if (document.getElementById("html3")) {
+      document.getElementById("html3").setAttribute("data-bs-theme", "dark");
+    }
+
+    if (document.getElementById("gradient-overlay")) {
+      document.getElementById("gradient-overlay").style.background =
+        "linear-gradient(to top, #26252b 35%, transparent)";
+    }
+
+    let lightElements = document.querySelectorAll('*[class*="light"]');
+    lightElements.forEach((element) => {
+      const lightClasses = element.className.split(" ");
+      const lightNewClasses = lightClasses.map((cls) =>
+        cls.replace(/light/g, "dark")
+      );
+      element.className = lightNewClasses.join(" ");
+    });
+
+    let secondaryElements = document.querySelectorAll('*[class*="secondary"]');
+    secondaryElements.forEach((element) => {
+      const secondaryClasses = element.className.split(" ");
+      const secondaryNewClasses = secondaryClasses.map((cls) =>
+        cls.replace(/secondary/g, "info")
+      );
+      element.className = secondaryNewClasses.join(" ");
+    });
+
+    let primaryElements = document.querySelectorAll('*[class*="primary"]');
+    primaryElements.forEach((element) => {
+      const primaryClasses = element.className.split(" ");
+      const primaryNewClasses = primaryClasses.map((cls) =>
+        cls.replace(/primary/g, "danger")
+      );
+      element.className = primaryNewClasses.join(" ");
+    });
+  } else {
+    if (document.getElementById("html")) {
+      document.getElementById("html").setAttribute("data-bs-theme", "light");
+    } else if (document.getElementById("html2")) {
+      document.getElementById("html2").setAttribute("data-bs-theme", "light");
+    } else if (document.getElementById("html3")) {
+      document.getElementById("html3").setAttribute("data-bs-theme", "light");
+    }
+
+    if (document.getElementById("gradient-overlay")) {
+      document.getElementById("gradient-overlay").style.background =
+        "linear-gradient(to top, #f9f7ff 35%, transparent)";
+    }
+
+    let lightElements = document.querySelectorAll('*[class*="dark"]');
+    lightElements.forEach((element) => {
+      const lightClasses = element.className.split(" ");
+      const lightNewClasses = lightClasses.map((cls) =>
+        cls.replace(/dark/g, "light")
+      );
+      element.className = lightNewClasses.join(" ");
+    });
+
+    let secondaryElements = document.querySelectorAll('*[class*="info"]');
+    secondaryElements.forEach((element) => {
+      const secondaryClasses = element.className.split(" ");
+      const secondaryNewClasses = secondaryClasses.map((cls) =>
+        cls.replace(/info/g, "secondary")
+      );
+      element.className = secondaryNewClasses.join(" ");
+    });
+
+    let primaryElements = document.querySelectorAll('*[class*="danger"]');
+    primaryElements.forEach((element) => {
+      const primaryClasses = element.className.split(" ");
+      const primaryNewClasses = primaryClasses.map((cls) =>
+        cls.replace(/danger/g, "primary")
+      );
+      element.className = primaryNewClasses.join(" ");
+    });
+  }
+}
+
+function toggleDark(dark) {
+  localStorage.setItem("dark", !dark);
 }
