@@ -136,7 +136,19 @@ document.getElementById("inPassword").addEventListener("keyup", function () {
   }
 });
 
+function authy() {
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  document.getElementById("signUpBtn").style.display = "none";
+  document.getElementById("signInBtn").style.display = "none";
+  document.getElementById("hiName").style.display = "inline-block";
+  document.getElementById("cartIcon").style.display = "inline-block";
+  document.getElementById("signOutBtn").style.display = "inline-block";
+  document.getElementById("hiName").innerHTML = `Hi ${currentUser.fName}`;
+}
+
 document.getElementById("signIn").addEventListener("click", function () {
+  isAuthenticated = false;
+
   for (let i = 0; i < userData.length; i++) {
     if (
       userData[i].email == inEmail.value &&
@@ -151,15 +163,24 @@ document.getElementById("signIn").addEventListener("click", function () {
   }
 
   if (isAuthenticated) {
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    document.getElementById("signUpBtn").style.display = "none";
-    document.getElementById("signInBtn").style.display = "none";
-    document.getElementById("hiName").style.display = "inline-block";
-    document.getElementById("cartIcon").style.display = "inline-block";
-    document.getElementById("signOutBtn").style.display = "inline-block";
-    document.getElementById("hiName").innerHTML = `Hi ${currentUser.fName}`;
+    localStorage.setItem("auth", JSON.stringify(1));
+    authy();
   } else {
     inPasswordError.style.display = "flex";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  let auth = JSON.parse(localStorage.getItem("auth"));
+  if (auth === null) {
+    auth = 0;
+    localStorage.setItem("auth", JSON.stringify(auth));
+    isAuthenticated = 0;
+  }
+  if (auth === 1) {
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    authy();
+    isAuthenticated = 0;
   }
 });
 
@@ -180,7 +201,7 @@ document.getElementById("signOutBtn").addEventListener("click", function () {
 
 // Add cart items to user object
 function addToCart(i) {
-  if (!isAuthenticated) {
+  if (!JSON.parse(localStorage.getItem("auth"))) {
     alert("Please login first");
   } else {
     cartNum++;

@@ -45,10 +45,6 @@
 #signOutBtn {
   display: none;
 }
-i .badge-small.bi.bi-cart2.position-relative {
-  font-size: 0.5rem !important;
-  padding: 0.2em;
-}
 .card {
   cursor: pointer;
   transition: all 0.3s ease 0s;
