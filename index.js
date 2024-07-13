@@ -3,6 +3,7 @@ let isAuthenticated = false;
 let currentUser = [];
 let productData = [];
 
+
 // Fetch data from API and put them in cards
 if (document.getElementById("html")) {
   fetch("https://fakestoreapi.com/products")
@@ -353,6 +354,8 @@ function darkMode(dark) {
       document.getElementById("html3").setAttribute("data-bs-theme", "dark");
     }
 
+    document.getElementById('theme-toggle').innerHTML='<i class="bi bi-moon-fill fs-4 px-3"></i>'
+
     if (document.getElementById("gradient-overlay")) {
       document.getElementById("gradient-overlay").style.background =
         "linear-gradient(to top, #26252b 35%, transparent)";
@@ -392,6 +395,8 @@ function darkMode(dark) {
     } else if (document.getElementById("html3")) {
       document.getElementById("html3").setAttribute("data-bs-theme", "light");
     }
+
+     document.getElementById('theme-toggle').innerHTML='<i class="bi bi-brightness-high-fill fs-4 px-3"></i>'
 
     if (document.getElementById("gradient-overlay")) {
       document.getElementById("gradient-overlay").style.background =
