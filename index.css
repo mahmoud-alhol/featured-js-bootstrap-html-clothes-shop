@@ -62,11 +62,19 @@
   max-width: 300px;
 }
 .cartProductImage {
-  max-width: 190px;
+  max-width: 135px;
   max-height: 150px;
   flex: 1;
   object-fit: contain;
 }
+@media (min-width: 768px) {
+.cartProductImage {
+  max-width: 190px;
+  max-height: 150px;
+  flex: 1;
+  object-fit: contain;
+}}
+
 .cartCard {
   height: 150px;
   align-items: center;
@@ -75,14 +83,20 @@
   box-shadow: 0 0px 15px 0px;
 }
 .cartName {
+  max-width: 180px;
   flex: 2;
 }
+@media (min-width: 768px) {
+  .cartName {
+    max-width: auto;
+  }}
+
 .cartPrice {
   flex: 1;
 }
 .cardTitle {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

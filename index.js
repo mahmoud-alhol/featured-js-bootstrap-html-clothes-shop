@@ -103,7 +103,7 @@ document.getElementById("signUp").addEventListener("click", function () {
   }
 });
 
-// Sign in regex check
+// Sign in
 let userData = JSON.parse(localStorage.getItem("user")) || [];
 
 let inEmail = document.getElementById("inEmail");
@@ -295,25 +295,25 @@ if (document.getElementById("html2")) {
       subtotal += product.price * quantity;
 
       cartItemsContainer.innerHTML += `
-        <div class="card cartCard mb-3 d-flex flex-row">
-          <img src="${product.image}" class="p-3 cartProductImage" />
-          <div class="card-body p-3 cartName">
+        <div class="card cartCard mb-3 d-flex flex-row wrap">
+          <img id"cartImg" src="${product.image}" class="p-3 cartProductImage" />
+          <div class="cartName">
             <h5 class="card-title cardTitle">${product.title}</h5>
             <p class="card-text text-primary">
               ${getRatingStars(product.rating.rate)} <small>(${
         product.rating.count
       })</small>
-            </p>
+            </p class="p-0">
             <p class="card-text">
               Quantity: ${quantity}
             </p>
           </div>
-          <div class="card-body text-center cartPrice">
+          <div class=" text-center cartPrice">
+          <del>${(product.price * 1.12 * quantity).toFixed(2)} L.E.</del>
             <p class="card-text">
-              <span class='fs-4 fw-medium'>${(product.price * quantity).toFixed(
+              <span class='fs-5 fw-medium'>${(product.price * quantity).toFixed(
                 2
               )} L.E.</span>
-              <del>${(product.price * 1.12 * quantity).toFixed(2)} L.E.</del>
             </p>
           </div>
         </div>`;
