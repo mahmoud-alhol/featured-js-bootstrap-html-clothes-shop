@@ -1,8 +1,7 @@
 #header-content {
   background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size:cover;
+  background-attachment: fixed;  
   height: 100dvh;
   background-position: 50% 25%;
 }
