@@ -112,7 +112,7 @@ let inEmailError = document.getElementById("inEmailError");
 inEmail.addEventListener("blur", function () {
   let foundUsers = userData.filter((user) => user.email === inEmail.value);
 
-  if (foundUsers.length > 0) {
+  if (foundUsers) {
     inEmailError.style.display = "none";
   } else {
     if (inEmail.value) {
@@ -125,17 +125,24 @@ let inPassword = document.getElementById("inPassword");
 let inPasswordError = document.getElementById("inPasswordError");
 
 document.getElementById("inPassword").addEventListener("keyup", function () {
-  if (
-    userData.find(
-      (user) =>
-        user.email === inEmail.value && user.password === inPassword.value
-    )
-  ) {
-    document.getElementById("signIn").setAttribute("data-bs-dismiss", "modal");
+  for (let i = 0; i < userData.length; i++) {
+    if (
+      userData[i].email == inEmail.value &&
+      userData[i].password == inPassword.value
+    ) {
+      console.log("cassascscacsacsacsasac");
+      document
+        .getElementById("signIn")
+        .setAttribute("data-bs-dismiss", "modal");
+      inPasswordError.style.display = "none";
+    } else {
+      inPasswordError.style.display = "flex";
+    }
   }
 });
 
 function authy() {
+  console.log("xxxxxx");
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
   document.getElementById("signUpBtn").style.display = "none";
   document.getElementById("signInBtn").style.display = "none";
@@ -146,14 +153,10 @@ function authy() {
 }
 
 document.getElementById("signIn").addEventListener("click", function () {
-  userData = JSON.parse(localStorage.getItem("user")) ;
+  userData = JSON.parse(localStorage.getItem("user"));
   isAuthenticated = false;
   console.log(`userData: ${userData}`);
   for (let i = 0; i < userData.length; i++) {
-    console.log(`userData[i].email: ${userData[i].email}`);
-    console.log(`inEmail.value: ${inEmail.value}`);
-    console.log(`userData[i].password: ${userData[i].password}`);
-    console.log(`inPassword.value: ${inPassword.value}`);
     if (
       userData[i].email == inEmail.value &&
       userData[i].password == inPassword.value
@@ -298,7 +301,7 @@ if (document.getElementById("html2")) {
       subtotal += product.price * quantity;
 
       cartItemsContainer.innerHTML += `
-        <div class="card cartCard mb-3 d-flex flex-row wrap">
+        <div class="card cartCard mb-3 d-flex flex-row wrap" onclick="productPage(${productId})">
           <img id"cartImg" src="${
             product.image
           }" class="p-3 cartProductImage" />
