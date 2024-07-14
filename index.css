@@ -6,13 +6,13 @@
   height: 100lvh;
   width: 100vw;
   background-position: center;
-/* }
-@media (min-width: 768px) {
-#header-content {
-  background-size: cover;
-}} */
-
-#gradient-overlay {
+}
+/* @media (min-width: 768px) {
+  #header-content {
+    background-size: cover;
+  }
+} */
+*/ #gradient-overlay {
   content: "";
   position: absolute;
   top: 0;
@@ -73,12 +73,13 @@
   object-fit: contain;
 }
 @media (min-width: 768px) {
-.cartProductImage {
-  max-width: 190px;
-  max-height: 150px;
-  flex: 1;
-  object-fit: contain;
-}}
+  .cartProductImage {
+    max-width: 190px;
+    max-height: 150px;
+    flex: 1;
+    object-fit: contain;
+  }
+}
 
 .cartCard {
   height: 150px;
@@ -94,7 +95,8 @@
 @media (min-width: 768px) {
   .cartName {
     max-width: auto;
-  }}
+  }
+}
 
 .cartPrice {
   flex: 1;
