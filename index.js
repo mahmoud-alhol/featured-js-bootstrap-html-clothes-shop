@@ -140,6 +140,22 @@ document.getElementById("inPassword").addEventListener("keyup", function () {
     }
   }
 });
+document.getElementById("signInModalToggle2").addEventListener("touchstart", function () {
+  for (let i = 0; i < userData.length; i++) {
+    if (
+      userData[i].email == inEmail.value &&
+      userData[i].password == inPassword.value
+    ) {
+      console.log("cassascscacsacsacsasac");
+      document
+        .getElementById("signIn")
+        .setAttribute("data-bs-dismiss", "modal");
+      inPasswordError.style.display = "none";
+    } else {
+      inPasswordError.style.display = "flex";
+    }
+  }
+});
 
 function authy() {
   console.log("xxxxxx");
