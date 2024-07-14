@@ -1,16 +1,18 @@
 #header-content {
   background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   height: 100lvh;
   width: 100vw;
   background-position: center;
 }
-@media (min-width: 768px) {
+/* For IOS devices */
+@supports (-webkit-touch-callout: none) {
   #header-content {
-    background-attachment: fixed;
-  }}
-
+    background-attachment: scroll;
+  }
+}
 #gradient-overlay {
   content: "";
   position: absolute;
@@ -72,12 +74,13 @@
   object-fit: contain;
 }
 @media (min-width: 768px) {
-.cartProductImage {
-  max-width: 190px;
-  max-height: 150px;
-  flex: 1;
-  object-fit: contain;
-}}
+  .cartProductImage {
+    max-width: 190px;
+    max-height: 150px;
+    flex: 1;
+    object-fit: contain;
+  }
+}
 
 .cartCard {
   height: 150px;
@@ -93,7 +96,8 @@
 @media (min-width: 768px) {
   .cartName {
     max-width: auto;
-  }}
+  }
+}
 
 .cartPrice {
   flex: 1;
