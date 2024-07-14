@@ -22,7 +22,7 @@
   bottom: 0;
   background: linear-gradient(to top, #f9f7ff 35%, transparent);
   z-index: 0;
-  height: 100dvh;
+  height: 100lvh;
 }
 #header-content * {
   z-index: 2;
