@@ -2,11 +2,16 @@
   background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: contain;
   height: 100dvh;
   width: 100vw;
-  background-position: center !important;
+  background-position: center;
 }
+@media (min-width: 768px) {
+#header-content {
+  background-size: cover;
+}}
+
 #gradient-overlay {
   content: "";
   position: absolute;
