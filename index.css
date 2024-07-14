@@ -3,8 +3,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  height: 100svh;
-  width: 100vw;
+  height: 100dvh;
   background-position: center;
 }
 /* For IOS devices */
@@ -22,7 +21,7 @@
   bottom: 0;
   background: linear-gradient(to top, #f9f7ff 35%, transparent);
   z-index: 0;
-  height: 100svh;
+  height: 100dvh;
 }
 #header-content * {
   z-index: 2;
