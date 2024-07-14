@@ -105,58 +105,42 @@ document.getElementById("signUp").addEventListener("click", function () {
 
 // Sign in
 
-let userData = JSON.parse(localStorage.getItem("user")) || [];
-
 let inEmail = document.getElementById("inEmail");
 let inEmailError = document.getElementById("inEmailError");
 
 inEmail.addEventListener("blur", function () {
-  let foundUsers = userData.filter((user) => user.email === inEmail.value);
-
-  if (foundUsers) {
-    inEmailError.style.display = "none";
-  } else {
-    if (inEmail.value) {
-      inEmailError.style.display = "flex";
-    }
-  }
+  let foundUsers = nUserData.filter((user) => user.email === inEmail.value);
 });
 
 let inPassword = document.getElementById("inPassword");
 let inPasswordError = document.getElementById("inPasswordError");
 
 document.getElementById("inPassword").addEventListener("keyup", function () {
-  for (let i = 0; i < userData.length; i++) {
+  for (let i = 0; i < nUserData.length; i++) {
     if (
-      userData[i].email == inEmail.value &&
-      userData[i].password == inPassword.value
+      nUserData[i].email == inEmail.value &&
+      nUserData[i].password == inPassword.value
     ) {
-      console.log("cassascscacsacsacsasac");
       document
         .getElementById("signIn")
         .setAttribute("data-bs-dismiss", "modal");
-      inPasswordError.style.display = "none";
-    } else {
-      inPasswordError.style.display = "flex";
     }
+    break;
   }
 });
 document
   .getElementById("signInModalToggle2")
   .addEventListener("touchstart", function () {
-    for (let i = 0; i < userData.length; i++) {
+    for (let i = 0; i < nUserData.length; i++) {
       if (
-        userData[i].email == inEmail.value &&
-        userData[i].password == inPassword.value
+        nUserData[i].email == inEmail.value &&
+        nUserData[i].password == inPassword.value
       ) {
-        console.log("cassascscacsacsacsasac");
         document
           .getElementById("signIn")
           .setAttribute("data-bs-dismiss", "modal");
-        inPasswordError.style.display = "none";
-      } else {
-        inPasswordError.style.display = "flex";
       }
+      break;
     }
   });
 
@@ -172,16 +156,16 @@ function authy() {
 }
 
 document.getElementById("signIn").addEventListener("click", function () {
-  userData = JSON.parse(localStorage.getItem("user"));
+  nUserData = JSON.parse(localStorage.getItem("user"));
   isAuthenticated = false;
-  console.log(`userData: ${userData}`);
-  for (let i = 0; i < userData.length; i++) {
+  console.log(`userData: ${nUserData}`);
+  for (let i = 0; i < nUserData.length; i++) {
     if (
-      userData[i].email == inEmail.value &&
-      userData[i].password == inPassword.value
+      nUserData[i].email == inEmail.value &&
+      nUserData[i].password == inPassword.value
     ) {
       isAuthenticated = true;
-      currentUser = userData[i];
+      currentUser = nUserData[i];
       currentUser.index = i;
       currentUser.cart = [];
       break;
