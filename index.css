@@ -2,9 +2,9 @@
   background: url(Assets/emag-2.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: contain;
   height: 100svh;
-  width: 100vw;
+  width: 100svw;
   background-position: center;
 }
 /* @media (min-width: 768px) {
