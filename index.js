@@ -79,8 +79,8 @@ password.addEventListener("blur", function () {
 
 // Sign up storing in local storage
 let nUserData;
-if (localStorage.user) {
-  nUserData = JSON.parse(localStorage.user);
+if (localStorage.getItem("user")) {
+  nUserData = JSON.parse(localStorage.getItem("user"));
 } else {
   nUserData = [];
 }
@@ -104,6 +104,7 @@ document.getElementById("signUp").addEventListener("click", function () {
 });
 
 // Sign in
+
 let userData = JSON.parse(localStorage.getItem("user")) || [];
 
 let inEmail = document.getElementById("inEmail");
@@ -140,22 +141,24 @@ document.getElementById("inPassword").addEventListener("keyup", function () {
     }
   }
 });
-document.getElementById("signInModalToggle2").addEventListener("touchstart", function () {
-  for (let i = 0; i < userData.length; i++) {
-    if (
-      userData[i].email == inEmail.value &&
-      userData[i].password == inPassword.value
-    ) {
-      console.log("cassascscacsacsacsasac");
-      document
-        .getElementById("signIn")
-        .setAttribute("data-bs-dismiss", "modal");
-      inPasswordError.style.display = "none";
-    } else {
-      inPasswordError.style.display = "flex";
+document
+  .getElementById("signInModalToggle2")
+  .addEventListener("touchstart", function () {
+    for (let i = 0; i < userData.length; i++) {
+      if (
+        userData[i].email == inEmail.value &&
+        userData[i].password == inPassword.value
+      ) {
+        console.log("cassascscacsacsacsasac");
+        document
+          .getElementById("signIn")
+          .setAttribute("data-bs-dismiss", "modal");
+        inPasswordError.style.display = "none";
+      } else {
+        inPasswordError.style.display = "flex";
+      }
     }
-  }
-});
+  });
 
 function authy() {
   console.log("xxxxxx");
