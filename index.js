@@ -1,5 +1,5 @@
 let cartNum = 0;
-let isAuthenticated = false;
+let isAuthenticated = 0;
 let currentUser = [];
 let productData = [];
 
@@ -103,19 +103,29 @@ document.getElementById("signUp").addEventListener("click", function () {
   }
 });
 
-// Sign in
-
-let inEmail = document.getElementById("inEmail");
-let inEmailError = document.getElementById("inEmailError");
-
-inEmail.addEventListener("blur", function () {
-  let foundUsers = nUserData.filter((user) => user.email === inEmail.value);
+// Check if you're signed in
+document.addEventListener("DOMContentLoaded", () => {
+  let auth = JSON.parse(localStorage.getItem("auth"));
+  if (!auth) {
+    isAuthenticated = 0;
+  } else if (auth) {
+    isAuthenticated = 1;
+    authy();
+  }
 });
 
+// Sign in
+let inEmail = document.getElementById("inEmail");
+let inEmailError = document.getElementById("inEmailError");
 let inPassword = document.getElementById("inPassword");
 let inPasswordError = document.getElementById("inPasswordError");
 
-document.getElementById("inPassword").addEventListener("keyup", function () {
+document.getElementById("inPassword").addEventListener("keyup", modalEnable);
+// document
+//   .getElementById("signInModalToggle2")
+//   .addEventListener("touchstart", modalEnable);
+
+function modalEnable() {
   for (let i = 0; i < nUserData.length; i++) {
     if (
       nUserData[i].email == inEmail.value &&
@@ -124,41 +134,18 @@ document.getElementById("inPassword").addEventListener("keyup", function () {
       document
         .getElementById("signIn")
         .setAttribute("data-bs-dismiss", "modal");
+        document
+        .getElementById("signIn2")
+        .setAttribute("data-bs-dismiss", "modal");
+        document
+        .getElementById("signIn3")
+        .setAttribute("data-bs-dismiss", "modal");
     }
     break;
   }
-});
-document
-  .getElementById("signInModalToggle2")
-  .addEventListener("touchstart", function () {
-    for (let i = 0; i < nUserData.length; i++) {
-      if (
-        nUserData[i].email == inEmail.value &&
-        nUserData[i].password == inPassword.value
-      ) {
-        document
-          .getElementById("signIn")
-          .setAttribute("data-bs-dismiss", "modal");
-      }
-      break;
-    }
-  });
-
-function authy() {
-  console.log("xxxxxx");
-  localStorage.setItem("currentUser", JSON.stringify(currentUser));
-  document.getElementById("signUpBtn").style.display = "none";
-  document.getElementById("signInBtn").style.display = "none";
-  document.getElementById("hiName").style.display = "inline-block";
-  document.getElementById("cartIcon").style.display = "inline-block";
-  document.getElementById("signOutBtn").style.display = "inline-block";
-  document.getElementById("hiName").innerHTML = `Hi ${currentUser.fName}`;
 }
 
 document.getElementById("signIn").addEventListener("click", function () {
-  nUserData = JSON.parse(localStorage.getItem("user"));
-  isAuthenticated = false;
-  console.log(`userData: ${nUserData}`);
   for (let i = 0; i < nUserData.length; i++) {
     if (
       nUserData[i].email == inEmail.value &&
@@ -168,37 +155,43 @@ document.getElementById("signIn").addEventListener("click", function () {
       currentUser = nUserData[i];
       currentUser.index = i;
       currentUser.cart = [];
-      break;
+      // break;
     }
   }
-
   if (isAuthenticated) {
-    localStorage.setItem("auth", JSON.stringify(1));
+    localStorage.setItem("auth", "1");
     authy();
   } else {
     inPasswordError.style.display = "flex";
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  let auth = JSON.parse(localStorage.getItem("auth"));
-  if (auth === null) {
-    auth = 0;
-    localStorage.setItem("auth", JSON.stringify(auth));
-    isAuthenticated = 0;
-  }
-  if (auth === 1) {
-    currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    authy();
-    isAuthenticated = 0;
-  }
-});
+function authy() {
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  document.getElementById("signUpBtn").style.display = "none";
+  document.getElementById("signInBtn").style.display = "none";
+  document.getElementById("hiName").style.display = "inline-block";
+  document.getElementById("cartIcon").style.display = "inline-block";
+  document.getElementById("signOutBtn").style.display = "inline-block";
+  document.getElementById("hiName").innerHTML = `Hi ${currentUser.fName}`;
+}
 
 // Sign out
 document.getElementById("signOutBtn").addEventListener("click", function () {
   localStorage.removeItem("currentUser");
-  isAuthenticated = false;
+  isAuthenticated = 0;
+  localStorage.setItem("auth", "0");
   currentUser = null;
+
+  document
+  .getElementById("signIn")
+  .setAttribute("data-bs-dismiss", "false");
+  document
+  .getElementById("signIn2")
+  .setAttribute("data-bs-dismiss", "false");
+  document
+  .getElementById("signIn3")
+  .setAttribute("data-bs-dismiss", "false");
 
   document.getElementById("signUpBtn").style.display = "inline-block";
   document.getElementById("signInBtn").style.display = "inline-block";
@@ -229,14 +222,14 @@ function addToCart(i) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("currentUser")) {
+  if (currentUser.cart) {
     let cartNumber = JSON.parse(localStorage.getItem("currentUser")).cart
       .length;
     document.getElementById(
       "cartIcon"
     ).innerHTML = `<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-primary fs-6 p-1">
-${cartNumber}
-</span>`;
+    ${cartNumber}
+    </span>`;
   }
 });
 
