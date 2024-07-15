@@ -47,8 +47,7 @@
             <a id="theme-toggle" ><i class="bi bi-brightness-high-fill fs-4 px-3"></i></a>
             <p id="hiName" class="me-3 mb-0"></p>
             <a href="cart.html" onclick="cartPage()"><i class="bi bi-cart2 position-relative  me-3" id="cartIcon"></i></a>
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-target="#signInModalToggle2"
-                data-bs-toggle="modal" id="signOutBtn">
+            <button type="button" class="btn btn-secondary btn-sm" id="signOutBtn">
                 Sign out
               </button>
               <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"
@@ -64,163 +63,96 @@
       </div>
     </nav>
   
-
-    <!-- Sign up modal -->
-    <div
-      class="modal fade"
-      id="signUpModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-light">
-            <h1 class="modal-title fs-5">Sign up</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body bg-light">
-            <form class="row g-3">
-              <div class="col-md-6">
-                <label for="fName" class="form-label">First Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fName"
-                  placeholder="ex. Mario"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="lName" class="form-label">Last Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lName"
-                  placeholder="ex. Luigi"
-                />
-              </div>
-              <span id="nameError" class="text-danger mt-0 error"
-                >Name should start with a capital letter and contain only
-                letters, hyphens, or apostrophes.</span
-              >
-              <div class="col-12 input-group">
-                <label for="email" class="form-label">Email</label>
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="ex. mario@example"
-                    aria-label="email"
-                    id="email"
-                  />
-                  <span class="input-group-text bg-secondary" id="basic-addon2">.com</span>
-                </div>
-                <span id="emailError" class="text-danger error"
-                  >Please enter a valid email address.</span
-                >
-              </div>
-              <div class="col-md-12">
-                <label for="password" class="form-label">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                /><span id="passwordError" class="text-danger error"
-                  >Password must be at least 8 characters long and include at
-                  least one uppercase letter, one lowercase letter, one number,
-                  and one special character.</span
-                >
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer bg-light">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-target="#signInModalToggle2"
-              data-bs-toggle="modal"
-              id="signUp"
-            >
-              Sign up
-            </button>
-          </div>
+     <!-- Sign up modal -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h1 class="modal-title fs-5">Sign up</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-    </div>
-
-    <!-- Sign in modal -->
-    <div
-      class="modal fade"
-      id="signInModalToggle2"
-      aria-hidden="true"
-      aria-labelledby="signInModalToggleLabel2"
-      tabindex="-1"
-    >
-      <div class="modal-dialog modal-dialog-centered "  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="signInModal">
-        <div class="modal-content">
-          <div class="modal-header bg-light">
-            <h1 class="modal-title fs-5" >
-              Sign in
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body bg-light">
-            <form class="row g-3">
-              <div class="col-12 input-group">
-                <label for="inEmail" class="form-label">Email</label>
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="ex. mario3@gmail"
-                    aria-label="Email"
-                    id="inEmail"
-                  />
-                  <span class="input-group-text bg-secondary" id="basic-addon2">.com</span>
-                </div>
+        <div class="modal-body bg-light">
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="fName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="fName" placeholder="ex. Mario" />
+            </div>
+            <div class="col-md-6">
+              <label for="lName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lName" placeholder="ex. Luigi" />
+            </div>
+            <span id="nameError" class="text-danger mt-0 error">Name should start with a capital letter and contain only
+              letters, hyphens, or apostrophes.</span>
+            <div class="col-12 input-group">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="ex. mario@example" aria-label="email" id="email" />
+                <span class="input-group-text bg-secondary" id="basic-addon2">.com</span>
               </div>
-              <span id="inEmailError" class="text-danger mt-0 error"
-                >Invalid email.</span
-              >
-              <div class="col-md-12">
-                <label for="inPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inPassword" />
-              </div>
-              <span id="inPasswordError" class="text-danger mt-0 error"
-                >Invalid email or password.</span
-              >
-            </form>
-          </div>
-          <div class="modal-footer bg-light">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal">
-              Close
-            </button>
-            <button id="signIn3" type="button" class="btn btn-primary" data-bs-dismiss="false">Sign In</button>
+              <span id="emailError" class="text-danger error">Please enter a valid email address.</span>
+            </div>
+            <div class="col-md-12">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" /><span id="passwordError"
+                class="text-danger error">Password must be at least 8 characters long and include at
+                least one uppercase letter, one lowercase letter, one number,
+                and one special character.</span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
           </button>
-          </div>
+          <button type="button" class="btn btn-primary" data-bs-target="#signInModalToggle2" data-bs-toggle="modal"
+            id="signUp">
+            Sign up
+          </button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Sign in modal -->
+  <div class="modal fade" id="signInModalToggle2" aria-hidden="true" aria-labelledby="signInModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered " tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true" id="signInModal">
+      <div class="modal-content">
+        <div class="modal-header bg-light">
+          <h1 class="modal-title fs-5">
+            Sign in
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light">
+          <form class="row g-3">
+            <div class="col-12 input-group">
+              <label for="inEmail" class="form-label">Email</label>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="ex. mario3@gmail" aria-label="Email"
+                  id="inEmail" />
+                <span class="input-group-text bg-light" id="basic-addon2">.com</span>
+              </div>
+            </div>
+            <span id="inEmailError" class="text-danger mt-0 error">Invalid email.</span>
+            <div class="col-md-12">
+              <label for="inPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inPassword" />
+            </div>
+            <span id="inPasswordError" class="text-danger mt-0 error">Invalid email or password.</span>
+          </form>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button id="signIn" type="button" class="btn btn-primary signIn" data-bs-dismiss="modal">Sign In</button>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Body -->
     <div class="margin-page-start">

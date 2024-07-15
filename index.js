@@ -1,7 +1,14 @@
 let cartNum = 0;
 let isAuthenticated = 0;
-let currentUser = [];
 let productData = [];
+let currentUser;
+
+if (localStorage.getItem("currentUser")) {
+  currentUser = JSON.parse(localStorage.getItem("currentUser"));
+} else {
+  currentUser = [];
+}
+
 
 // Fetch data from API and put them in cards
 if (document.getElementById("html")) {
@@ -12,7 +19,7 @@ if (document.getElementById("html")) {
       document.getElementById("cardContainer").innerHTML = "";
       for (let i = 0; i < productData.length; i++) {
         document.getElementById("cardContainer").innerHTML += `
-      <div class="card shadow border-0 align-items-center flex-grow-1" onclick="productPage(${i})">
+      <div class="card shadow border-0 align-items-center flex-grow-1" id="homeCard" onclick="productPage(${i})">
         <img src="${productData[i].image}" class="card-img-top m-3"/>
         <div class="card-body w-100">
         <h5 class="card-title cardTitle" >${productData[i].title}</h5>
@@ -121,9 +128,6 @@ let inPassword = document.getElementById("inPassword");
 let inPasswordError = document.getElementById("inPasswordError");
 
 document.getElementById("inPassword").addEventListener("keyup", modalEnable);
-// document
-//   .getElementById("signInModalToggle2")
-//   .addEventListener("touchstart", modalEnable);
 
 function modalEnable() {
   for (let i = 0; i < nUserData.length; i++) {
@@ -131,40 +135,34 @@ function modalEnable() {
       nUserData[i].email == inEmail.value &&
       nUserData[i].password == inPassword.value
     ) {
-      document
-        .getElementById("signIn")
-        .setAttribute("data-bs-dismiss", "modal");
-        document
-        .getElementById("signIn2")
-        .setAttribute("data-bs-dismiss", "modal");
-        document
-        .getElementById("signIn3")
-        .setAttribute("data-bs-dismiss", "modal");
+      document.querySelectorAll(".signIn").forEach((element) => {
+        element.setAttribute("data-bs-dismiss", "modal");
+      });
+      break;
     }
-    break;
   }
 }
-
-document.getElementById("signIn").addEventListener("click", function () {
-  for (let i = 0; i < nUserData.length; i++) {
-    if (
-      nUserData[i].email == inEmail.value &&
-      nUserData[i].password == inPassword.value
-    ) {
-      isAuthenticated = true;
-      currentUser = nUserData[i];
-      currentUser.index = i;
-      currentUser.cart = [];
-      // break;
+if (document.getElementById("signIn")) {
+  document.getElementById("signIn").addEventListener("click", function () {
+    for (let i = 0; i < nUserData.length; i++) {
+      if (
+        nUserData[i].email == inEmail.value &&
+        nUserData[i].password == inPassword.value
+      ) {
+        isAuthenticated = true;
+        currentUser = nUserData[i];
+        currentUser.index = i;
+        currentUser.cart = [];
+      }
     }
-  }
-  if (isAuthenticated) {
-    localStorage.setItem("auth", "1");
-    authy();
-  } else {
-    inPasswordError.style.display = "flex";
-  }
-});
+    if (isAuthenticated) {
+      localStorage.setItem("auth", "1");
+      authy();
+    } else {
+      inPasswordError.style.display = "flex";
+    }
+  });
+}
 
 function authy() {
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -183,15 +181,9 @@ document.getElementById("signOutBtn").addEventListener("click", function () {
   localStorage.setItem("auth", "0");
   currentUser = null;
 
-  document
-  .getElementById("signIn")
-  .setAttribute("data-bs-dismiss", "false");
-  document
-  .getElementById("signIn2")
-  .setAttribute("data-bs-dismiss", "false");
-  document
-  .getElementById("signIn3")
-  .setAttribute("data-bs-dismiss", "false");
+  document.querySelectorAll(".signIn").forEach((element) => {
+    element.setAttribute("data-bs-dismiss", "false");
+  });
 
   document.getElementById("signUpBtn").style.display = "inline-block";
   document.getElementById("signInBtn").style.display = "inline-block";
@@ -204,10 +196,14 @@ document.getElementById("signOutBtn").addEventListener("click", function () {
 
 // Add cart items to user object
 function addToCart(i) {
-  if (!JSON.parse(localStorage.getItem("auth"))) {
+  if (!localStorage.getItem("currentUser")) {
     alert("Please login first");
   } else {
-    let cartNum = JSON.parse(localStorage.getItem("currentUser")).cart.length;
+    if (localStorage.getItem("currentUser").cart) {
+      let cartNum = JSON.parse(localStorage.getItem("currentUser")).cart.length;
+    } else {
+      let cartNum = 0;
+    }
     cartNum++;
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     currentUser.cart.push(i);
@@ -266,7 +262,9 @@ document.addEventListener("DOMContentLoaded", () => {
     )} L.E.</del></p>        
         </div>
         <div class="mt-auto mb-4">
-          <a class="btn btn-primary align-self-end" onclick="addToCart(${productId})">Add to cart</a>
+          <a class="btn btn-primary align-self-end" onclick="addToCart(${
+            product.id
+          })">Add to cart</a>
         </div>`;
   }
 });

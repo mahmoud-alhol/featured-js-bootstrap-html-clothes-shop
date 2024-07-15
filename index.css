@@ -11,13 +11,12 @@
   }
 }
 #gradient-overlay {
-  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, #f9f7ff 35%, transparent);
+  background: linear-gradient(to top, #f9f7ff, transparent);
   z-index: 0;
   height: 100vh;
 }
@@ -78,7 +77,6 @@
     object-fit: contain;
   }
 }
-
 .cartCard {
   height: 150px;
   align-items: center;
@@ -95,7 +93,6 @@
     max-width: auto;
   }
 }
-
 .cartPrice {
   flex: 1;
 }
