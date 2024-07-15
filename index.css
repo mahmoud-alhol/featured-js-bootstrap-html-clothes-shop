@@ -54,8 +54,10 @@
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
-.card.shadow.border-0.align-items-center:hover {
-  scale: 1.05;
+@media (min-width: 768px) {
+  .card.shadow.border-0.align-items-center:hover {
+    scale: 1.05;
+  }
 }
 .margin-page-start {
   margin-top: 100px;
@@ -124,4 +126,7 @@
     padding-bottom: 0;
     padding-top: 0;
   }
+}
+.contactUs{
+  margin-top: 20px;
 }
